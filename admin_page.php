@@ -1,16 +1,9 @@
 <?php
 	session_start();
-	require 'vendor/autoload.php';
-	if(!isset($_SESSION['email_address']))
+    if(!isset($_SESSION['email_address']))
 		header('location:index.php');
-	
+
 	include('connection.php');
-	use Dotenv\Dotenv;
-
-	// Load environment variables
-	$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-	$dotenv->load();
-
 	$username = $_SESSION['username'];
 	$sql = "SELECT * FROM user WHERE username = '$username' ";
 	$result = mysqli_query($conn,$sql);
@@ -743,7 +736,7 @@
 ?>
 	<!-- copyright -->
 	<div class="cpy-right text-center">
-		<p>© 2018 Musical World. All rights reserved</p>
+		<p>© 2024 Musical World. All rights reserved</p>
 	</div>
     <!-- //copyright -->
     <!-- js-->

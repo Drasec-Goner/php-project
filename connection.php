@@ -5,5 +5,5 @@
 	if(!$conn)
 		die("Error while connecting...!").mysqli_connect_error($conn);
 
-    $smtp_password = $_ENV['SMTP_PASSWORD'];
+    $smtp_password = getenv('SMTP_PASSWORD');
  ?>
