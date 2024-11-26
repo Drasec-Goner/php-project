@@ -1,9 +1,15 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['email_address']))
+	session_start();
+	require 'vendor/autoload.php';
+	if(!isset($_SESSION['email_address']))
 		header('location:index.php');
 	
 	include('connection.php');
+	use Dotenv\Dotenv;
+
+	// Load environment variables
+	$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+	$dotenv->load();
 
 	$username = $_SESSION['username'];
 	$sql = "SELECT * FROM user WHERE username = '$username' ";
@@ -272,6 +278,35 @@
 	<link href="//fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
 	<!--//webfonts-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.11/dist/sweetalert2.min.css">
+    <!-- Custom CSS for Admin Page -->
+    <style>
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .nav-item p {
+            margin: 0;
+        }
+        .alert-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-default {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+    </style>
 </head>
 
 <body>
@@ -410,7 +445,7 @@
 
     echo "
         <div class='card'>
-            <h3 class='card-header text-center font-weight-bold text-uppercase py-4'>BEngali Songs</h3>
+            <h3 class='card-header text-center font-weight-bold text-uppercase py-4'>Bengali Songs</h3>
             <div class='card-body'>
                 <div id='table' class='table-editable'>
                     <table class='table table-bordered table-responsive-md table-striped text-center'>

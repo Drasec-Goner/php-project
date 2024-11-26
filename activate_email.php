@@ -17,7 +17,7 @@
 	$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 	$mail->SMTPAuth = true;                               // Enable SMTP authentication
 	$mail->Username = 'drasec.04@gmail.com';                 // SMTP username
-	$mail->Password = ;                           // SMTP password
+	$mail->Password = getenv('SMTP_PASSWORD');                           // SMTP password
 	$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 	$mail->Port = 587;                                    // TCP port to connect to
 	$to=$_SESSION['email_address'];
